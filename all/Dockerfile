@@ -26,15 +26,13 @@ RUN ./aws/install
 # DUCKDB
 WORKDIR /duckdb
 RUN mkdir sql
+RUN mkdir data
 RUN wget https://github.com/duckdb/duckdb/releases/download/v0.8.1/duckdb_cli-linux-amd64.zip
 RUN unzip duckdb_cli-linux-amd64.zip
 COPY all/sql/*.sql ./sql
 
-# create database
-RUN /duckdb/duckdb /duckdb/data/db.duckdb
-
 # import data from sql
 RUN /duckdb/duckdb < ./sql/admins.sql
-RUN duckdb/duckdb < ./sql/buildings.sql
+RUN /duckdb/duckdb < ./sql/buildings.sql
 RUN /duckdb/duckdb < ./sql/places.sql
 
