@@ -34,3 +34,8 @@ using (var duckDBConnection = new DuckDBConnection("Data Source=./data/overturem
   ....
 
 ```
+
+### Examples BBox Query:
+
+- **Italy**: AND bbox.minx > 5.904195 AND bbox.maxx < 17.523707 AND bbox.miny > 37.332549 AND bbox.maxy < 47.610420; (very slow!!)
+- **Rome**: AND bbox.minx > 12.366681 AND bbox.maxx < 12.605893 AND bbox.miny > 41.785521 AND bbox.maxy < 42.006731; 

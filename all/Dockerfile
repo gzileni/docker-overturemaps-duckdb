@@ -35,4 +35,5 @@ COPY all/sql/*.sql ./sql
 RUN /duckdb/duckdb < ./sql/admins.sql
 RUN /duckdb/duckdb < ./sql/buildings.sql
 RUN /duckdb/duckdb < ./sql/places.sql
+RUN /duckdb/duckdb < ./sql/transportation.sql
 
