@@ -5,7 +5,7 @@ To create the Docker image you need to run the following command:
 
 ```
 
-docker build -t overturemaps-duckdb .  
+make build  
 
 ```
 
@@ -13,7 +13,7 @@ to execute stack try to run following command:
 
 ```
 
-docker-compose up 
+make stack 
 
 ```
 
