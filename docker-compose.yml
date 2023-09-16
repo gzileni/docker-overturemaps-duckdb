@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+
+  duckdb:
+    container_name: duckdb
+    image: duckdb:latest
+    restart: always
+    profiles: ["base"]
+    tty: true
+    networks:
+      - overturemaps-network
+    volumes:
+      - ./data:/duckdb/data
+
+  overturemaps:
+    container_name: overturemaps
+    image: overturemaps:latest
+    restart: always
+    profiles: ["all"]
+    tty: true
+    command:
+      - /duckdb/runsql.sh
+    networks:
+      - overturemaps-network
+    volumes:
+      - ./data:/duckdb/data
+    
+networks:
+  overturemaps-network:
+    name: overturemaps
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.10.0/24
+
+volumes:
+  db:
+    driver: local
