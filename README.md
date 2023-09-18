@@ -13,6 +13,8 @@ to execute stack try to run following command:
 make stack 
 ```
 
+**Disclaimer: Creating this stack needs a lot of resources and time**
+
 the image can be integrated into its own stack and serves as a database to develop any client to extract geographic data.
 
 There are many clients for DuckDb listed in the [official documentation](https://duckdb.org/docs/archive/0.8.1/api/overview).
