@@ -29,7 +29,7 @@ RUN mkdir sql
 RUN mkdir data
 RUN wget https://github.com/duckdb/duckdb/releases/download/v0.8.1/duckdb_cli-linux-amd64.zip
 RUN unzip duckdb_cli-linux-amd64.zip
-COPY all/sql/*.sql ./sql
+COPY archeo/sql/*.sql ./sql
 
 # import data from sql
 RUN /duckdb/duckdb < ./sql/places_archeo.sql
