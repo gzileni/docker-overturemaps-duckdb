@@ -1,7 +1,7 @@
 # docker-overturemaps-duckdb
 
-DuckDb docker image with all Overture Maps persistent data.
-To create the Docker image you need to run the following command:
+DuckDb docker image with all [Overture Maps](https://overturemaps.org) persistent data.
+To create the [DuckDb](https://duckdb.org) Docker image you need to run the following command:
 
 ```bash
 make build  
