@@ -11,7 +11,7 @@ services:
     networks:
       - overturemaps-network
     volumes:
-      - ./data:/duckdb/data
+      - ./data/base:/duckdb/data
 
   overturemaps:
     container_name: overturemaps
@@ -24,7 +24,20 @@ services:
     networks:
       - overturemaps-network
     volumes:
-      - ./data:/duckdb/data
+      - ./data/all/base:/duckdb/data
+
+  overturemaps-archeo:
+    container_name: overturemaps-archeo
+    image: overturemaps-archeo:latest
+    restart: always
+    profiles: ["archeo"]
+    tty: true
+    command:
+      - /duckdb/runsql.sh
+    networks:
+      - overturemaps-network
+    volumes:
+      - ./data/archeo:/duckdb/data
     
 networks:
   overturemaps-network:

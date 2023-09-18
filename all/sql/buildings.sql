@@ -5,7 +5,6 @@ LOAD spatial;
 LOAD httpfs;
 SET s3_region='us-west-2';
 
-
 CREATE TABLE buildins AS SELECT
         type,
         version,
@@ -20,4 +19,4 @@ CREATE TABLE buildins AS SELECT
     FROM
         read_parquet('s3://overturemaps-us-west-2/release/2023-07-26-alpha.0/theme=buildings/type=*/*', hive_partitioning=1)
     WHERE
-        bbox.minx > 5.904195 AND bbox.maxx < 17.523707 AND bbox.miny > 37.332549 AND bbox.maxy < 47.610420;
+        bbox.minx > 12.337646 AND bbox.maxx < 12.626038 AND bbox.miny > 41.781553 AND bbox.maxy < 42.026854;
