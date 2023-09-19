@@ -3,7 +3,7 @@ version: "3.8"
 services:
 
   duckdb:
-    container_name: duckdb:latest
+    container_name: duckdb
     image: duckdb:latest
     restart: always
     profiles: ["base"]
@@ -14,7 +14,7 @@ services:
       - ./data/base:/duckdb/data
 
   overturemaps:
-    container_name: overturemaps:latest
+    container_name: overturemaps
     image: overturemaps:latest
     restart: always
     profiles: ["all"]
@@ -27,31 +27,15 @@ services:
       - ./data/all/base:/duckdb/data
 
   overturemaps-archeo:
-    container_name: overturemaps-archeo:latest
+    container_name: overturemaps-archeo
     image: overturemaps-archeo:latest
     restart: always
     profiles: ["archeo"]
     tty: true
-    command:
-      - /duckdb/runsql.sh
     networks:
       - overturemaps-network
     volumes:
       - ./data/archeo:/duckdb/data
-
-  overturemaps-download:
-    container_name: overturemaps-downalod:latest
-    image: ghcr.io/youssef-harby/overturemapsdownloader:latest
-    profiles: ["archeo"]
-    command: 
-      - /duckdb/italy/downloader.sh
-    restart: unless-stopped
-    networks:
-      - overturemaps-network
-    ports:
-      - 8888:8888
-    volumes:
-      - ./data/italy:/duckdb/italy
     
 networks:
   overturemaps-network:
