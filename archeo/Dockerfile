@@ -27,9 +27,14 @@ RUN ./aws/install
 WORKDIR /duckdb
 RUN mkdir sql
 RUN mkdir data
+RUN mkdir italy
+RUN mkdir italy/gdb
+RUN mkdir italy/gpkg
+RUN mkdir italyYparquet
 RUN wget https://github.com/duckdb/duckdb/releases/download/v0.8.1/duckdb_cli-linux-amd64.zip
 RUN unzip duckdb_cli-linux-amd64.zip
 COPY archeo/sql/*.sql ./sql
+COPY archeo/italy/* ./italy
 
 # import data from sql
 RUN /duckdb/duckdb < ./sql/places_archeo.sql

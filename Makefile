@@ -13,7 +13,7 @@ build:
 stack-base: 
 	docker-compose -f ./docker-compose.yml --profile base up -d --remove-orphans
 
-stack-base: 
+stack-archeo: 
 	docker-compose -f ./docker-compose.yml --profile archeo up -d --remove-orphans
 
 stack: 
